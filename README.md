@@ -66,7 +66,28 @@ cd android && ./gradlew assembleDebug   # → android/app/build/outputs/apk/debu
 ```
 
 Backups go through the Android share sheet. "Add to Google Calendar" opens Google's own event screen (no API key).
-For Google Play, build a signed release bundle (`./gradlew bundleRelease`) with your own upload key.
+Debug builds are for testing on your own phone only: they are debuggable, so anyone with USB access can read the
+cases on the device. Anything you hand out is a signed release build, which also keeps case data out of Android's
+cloud backups and phone-to-phone transfers. Create your upload key once, and keep the file and passwords safe
+(losing them means no update can ever install over your app):
+
+```bash
+keytool -genkeypair -v -keystore almirah-upload.jks -alias almirah -keyalg RSA -keysize 2048 -validity 10000
+```
+
+Then create `android/keystore.properties` (gitignored) pointing at it:
+
+```properties
+storeFile=C:/path/to/almirah-upload.jks
+storePassword=…
+keyAlias=almirah
+keyPassword=…
+```
+
+```bash
+cd android && ./gradlew assembleRelease   # → app/build/outputs/apk/release/app-release.apk
+cd android && ./gradlew bundleRelease     # → the .aab for Google Play
+```
 `node scripts/make-android-icons.mjs` regenerates the launcher icons and splash screens.
 
 ## Before going live

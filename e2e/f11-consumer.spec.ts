@@ -64,4 +64,15 @@ test.describe("F11 consumer commissions", () => {
     await page.goto("/courts");
     await expect(page.getByRole("list", { name: "Court complexes" }).getByText("National Consumer Commission", { exact: true })).toBeVisible();
   });
+
+  test("F11-H4 find a consumer case by its case number", async ({ page }) => {
+    await page.goto("/search");
+    await pickBench(page);
+    await page.getByRole("combobox", { name: "Case type" }).selectOption("Consumer Complaint");
+    await page.getByRole("textbox", { name: "Case number" }).fill("412");
+    await page.getByLabel("Year").selectOption("2025");
+    await page.getByRole("button", { name: "Search", exact: true }).click();
+    await expect(page.getByRole("heading", { name: "1 result" })).toBeVisible();
+    await expect(page.getByText("CC/412/2025").first()).toBeVisible();
+  });
 });

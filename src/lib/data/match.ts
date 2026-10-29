@@ -6,7 +6,13 @@ import { CNR_RE, type SearchCriteria } from "./contract";
 export const has = (hay: string | undefined, needle: string) =>
   Boolean(hay && needle && hay.toLowerCase().includes(needle.trim().toLowerCase()));
 
-const yearOf = (ref?: string) => ref?.split("/")[1];
+// Case and filing numbers are "number/year"; consumer commissions prefix a type ("CC/412/2025", "DC/0702/2025").
+const refParts = (ref?: string) => ref?.replace(/^[A-Z]+\//i, "").split("/") ?? [];
+const yearOf = (ref?: string) => refParts(ref)[1];
+const sameRef = (ref: string | undefined, number: string, year: string) => {
+  const [n, y] = refParts(ref);
+  return n !== undefined && Number(n) === Number(number) && y === year;
+};
 
 export function sortByHearing(a: CourtCase, b: CourtCase) {
   if (a.status !== b.status) return a.status === "pending" ? -1 : 1;
@@ -23,10 +29,10 @@ export function matches(c: CourtCase, q: SearchCriteria, barOf: (name?: string) 
       return (
         c.establishmentId === q.establishmentId &&
         c.caseType === q.caseType &&
-        c.registrationNumber === `${Number(q.number)}/${q.year}`
+        sameRef(c.registrationNumber, q.number, q.year)
       );
     case "filingNumber":
-      return c.establishmentId === q.establishmentId && c.filingNumber === `${Number(q.number)}/${q.year}`;
+      return c.establishmentId === q.establishmentId && sameRef(c.filingNumber, q.number, q.year);
     case "fir":
       return (
         c.districtId === q.districtId &&
