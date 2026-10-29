@@ -1,0 +1,30 @@
+@import "tailwindcss";
+@import "./tokens.css";
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--surface);
+  color: var(--text);
+  font-family: var(--font-inter), var(--font-sans-stack);
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+dialog::backdrop {
+  background: rgb(21 24 29 / 0.4);
+}

@@ -1,0 +1,1065 @@
+{
+  "format": "almirah-backup",
+  "version": 1,
+  "exportedAt": "2026-10-28T14:52:05.031Z",
+  "cases": [
+    {
+      "id": "seed-mhpu010004212024",
+      "cnr": "MHPU010004212024",
+      "caseType": "Civil Suit",
+      "filingNumber": "1180/2024",
+      "filingDate": "2024-01-20",
+      "registrationNumber": "421/2024",
+      "registrationDate": "2024-01-29",
+      "establishmentId": "c08a99de-eec8-44b4-ad6b-7dd6cce48459",
+      "courtNo": "4",
+      "judge": "Civil Judge S.D., Court 4",
+      "status": "pending",
+      "stage": "Evidence",
+      "nextHearingDate": "2026-10-28",
+      "source": "seed",
+      "saved": true,
+      "parties": [
+        {
+          "role": "petitioner",
+          "name": "Ramesh Deshmukh",
+          "advocateName": "A. Kulkarni"
+        },
+        {
+          "role": "respondent",
+          "name": "Pune Municipal Corporation",
+          "advocateName": "S. Joshi"
+        }
+      ],
+      "acts": [
+        {
+          "actName": "Specific Relief Act, 1963",
+          "section": "38"
+        }
+      ],
+      "history": [
+        {
+          "judge": "Civil Judge S.D., Court 4",
+          "businessOn": "2024-02-19",
+          "hearingDate": "2024-04-04",
+          "purpose": "Appearance"
+        },
+        {
+          "judge": "Civil Judge S.D., Court 4",
+          "businessOn": "2024-04-04",
+          "hearingDate": "2024-06-28",
+          "purpose": "Written statement"
+        },
+        {
+          "judge": "Civil Judge S.D., Court 4",
+          "businessOn": "2024-06-28",
+          "hearingDate": "2026-10-28",
+          "purpose": "Evidence"
+        }
+      ],
+      "orders": [
+        {
+          "orderNumber": "1",
+          "orderDate": "2024-02-19"
+        },
+        {
+          "orderNumber": "2",
+          "orderDate": "2024-06-28"
+        }
+      ],
+      "interimApps": [
+        {
+          "iaNumber": "IA 1/2024",
+          "filedBy": "Petitioner",
+          "status": "pending",
+          "filedOn": "2024-02-09"
+        }
+      ],
+      "transfers": [],
+      "updatedAt": "2026-10-28T04:30:00.000Z"
+    },
+    {
+      "id": "seed-mhpu020011872023",
+      "cnr": "MHPU020011872023",
+      "caseType": "Criminal Case",
+      "filingNumber": "2210/2023",
+      "filingDate": "2023-01-31",
+      "registrationNumber": "1187/2023",
+      "registrationDate": "2023-02-09",
+      "establishmentId": "c79cd5f8-dfb8-48aa-a424-f4a2e1ec7167",
+      "courtNo": "2",
+      "judge": "Chief Judicial Magistrate",
+      "status": "pending",
+      "stage": "Arguments",
+      "nextHearingDate": "2026-10-29",
+      "source": "seed",
+      "saved": true,
+      "parties": [
+        {
+          "role": "petitioner",
+          "name": "State of Maharashtra",
+          "advocateName": "Public Prosecutor"
+        },
+        {
+          "role": "respondent",
+          "name": "Vikas Pawar",
+          "advocateName": "A. Kulkarni"
+        }
+      ],
+      "acts": [
+        {
+          "actName": "Negotiable Instruments Act, 1881",
+          "section": "138"
+        }
+      ],
+      "fir": {
+        "policeStation": "Shivajinagar",
+        "firNumber": "212",
+        "firYear": 2023
+      },
+      "history": [
+        {
+          "judge": "Chief Judicial Magistrate",
+          "businessOn": "2023-03-02",
+          "hearingDate": "2023-04-16",
+          "purpose": "Appearance"
+        },
+        {
+          "judge": "Chief Judicial Magistrate",
+          "businessOn": "2023-04-16",
+          "hearingDate": "2023-07-10",
+          "purpose": "Written statement"
+        },
+        {
+          "judge": "Chief Judicial Magistrate",
+          "businessOn": "2023-07-10",
+          "hearingDate": "2026-10-29",
+          "purpose": "Arguments"
+        }
+      ],
+      "orders": [
+        {
+          "orderNumber": "1",
+          "orderDate": "2023-03-02"
+        },
+        {
+          "orderNumber": "2",
+          "orderDate": "2023-07-10"
+        }
+      ],
+      "interimApps": [],
+      "transfers": [],
+      "updatedAt": "2026-10-28T04:30:00.000Z"
+    },
+    {
+      "id": "seed-mhpu010009032022",
+      "cnr": "MHPU010009032022",
+      "caseType": "Regular Civil Appeal",
+      "filingNumber": "1544/2022",
+      "filingDate": "2022-02-11",
+      "registrationNumber": "903/2022",
+      "registrationDate": "2022-02-20",
+      "establishmentId": "c08a99de-eec8-44b4-ad6b-7dd6cce48459",
+      "courtNo": "4",
+      "judge": "Civil Judge S.D., Court 4",
+      "status": "pending",
+      "stage": "Final hearing",
+      "nextHearingDate": "2026-10-28",
+      "source": "seed",
+      "saved": false,
+      "parties": [
+        {
+          "role": "petitioner",
+          "name": "Sunita Gaikwad",
+          "advocateName": "M. Patil"
+        },
+        {
+          "role": "respondent",
+          "name": "Anil Gaikwad",
+          "advocateName": "A. Kulkarni"
+        }
+      ],
+      "acts": [
+        {
+          "actName": "Code of Civil Procedure, 1908",
+          "section": "96"
+        }
+      ],
+      "history": [
+        {
+          "judge": "Civil Judge S.D., Court 4",
+          "businessOn": "2022-03-13",
+          "hearingDate": "2022-04-27",
+          "purpose": "Appearance"
+        },
+        {
+          "judge": "Civil Judge S.D., Court 4",
+          "businessOn": "2022-04-27",
+          "hearingDate": "2022-07-21",
+          "purpose": "Written statement"
+        },
+        {
+          "judge": "Civil Judge S.D., Court 4",
+          "businessOn": "2022-07-21",
+          "hearingDate": "2026-10-28",
+          "purpose": "Final hearing"
+        }
+      ],
+      "orders": [
+        {
+          "orderNumber": "1",
+          "orderDate": "2022-03-13"
+        },
+        {
+          "orderNumber": "2",
+          "orderDate": "2022-07-21"
+        }
+      ],
+      "interimApps": [],
+      "transfers": [],
+      "updatedAt": "2026-10-28T04:30:00.000Z"
+    },
+    {
+      "id": "seed-mhpu040002562025",
+      "cnr": "MHPU040002562025",
+      "caseType": "Bail Application",
+      "filingNumber": "301/2025",
+      "filingDate": "2025-02-22",
+      "registrationNumber": "256/2025",
+      "registrationDate": "2025-03-03",
+      "establishmentId": "153902ae-cf19-43ea-a97c-8f7155350fd2",
+      "courtNo": "1",
+      "judge": "District and Sessions Judge",
+      "status": "pending",
+      "stage": "Reply awaited",
+      "nextHearingDate": "2026-10-31",
+      "source": "seed",
+      "saved": true,
+      "parties": [
+        {
+          "role": "petitioner",
+          "name": "Sagar Jadhav",
+          "advocateName": "A. Kulkarni"
+        },
+        {
+          "role": "respondent",
+          "name": "State of Maharashtra",
+          "advocateName": "Public Prosecutor"
+        }
+      ],
+      "acts": [
+        {
+          "actName": "Bharatiya Nyaya Sanhita, 2023",
+          "section": "318"
+        }
+      ],
+      "fir": {
+        "policeStation": "Kothrud",
+        "firNumber": "88",
+        "firYear": 2025
+      },
+      "history": [
+        {
+          "judge": "District and Sessions Judge",
+          "businessOn": "2025-03-24",
+          "hearingDate": "2025-05-08",
+          "purpose": "Appearance"
+        },
+        {
+          "judge": "District and Sessions Judge",
+          "businessOn": "2025-05-08",
+          "hearingDate": "2025-08-01",
+          "purpose": "Written statement"
+        },
+        {
+          "judge": "District and Sessions Judge",
+          "businessOn": "2025-08-01",
+          "hearingDate": "2026-10-31",
+          "purpose": "Reply awaited"
+        }
+      ],
+      "orders": [
+        {
+          "orderNumber": "1",
+          "orderDate": "2025-03-24"
+        },
+        {
+          "orderNumber": "2",
+          "orderDate": "2025-08-01"
+        }
+      ],
+      "interimApps": [],
+      "transfers": [],
+      "updatedAt": "2026-10-28T04:30:00.000Z"
+    },
+    {
+      "id": "seed-mhmc010033012021",
+      "cnr": "MHMC010033012021",
+      "caseType": "Civil Suit",
+      "filingNumber": "5120/2021",
+      "filingDate": "2021-03-05",
+      "registrationNumber": "3301/2021",
+      "registrationDate": "2021-03-14",
+      "establishmentId": "9c23353b-e4b7-42ac-a8d3-b2fd90d89135",
+      "courtNo": "12",
+      "judge": "City Civil Judge, Court 12",
+      "status": "disposed",
+      "stage": "Decreed",
+      "natureOfDisposal": "Decreed in favour of plaintiff",
+      "source": "seed",
+      "saved": true,
+      "parties": [
+        {
+          "role": "petitioner",
+          "name": "Harbour Traders Pvt Ltd",
+          "advocateName": "R. Mehta"
+        },
+        {
+          "role": "respondent",
+          "name": "Coastal Freight Co",
+          "advocateName": "N. Shah"
+        }
+      ],
+      "acts": [
+        {
+          "actName": "Code of Civil Procedure, 1908",
+          "section": "Order 37"
+        }
+      ],
+      "history": [
+        {
+          "judge": "City Civil Judge, Court 12",
+          "businessOn": "2021-04-04",
+          "hearingDate": "2021-05-19",
+          "purpose": "Appearance"
+        },
+        {
+          "judge": "City Civil Judge, Court 12",
+          "businessOn": "2021-05-19",
+          "hearingDate": "2021-08-12",
+          "purpose": "Written statement"
+        },
+        {
+          "judge": "City Civil Judge, Court 12",
+          "businessOn": "2021-08-12",
+          "hearingDate": "2021-10-31",
+          "purpose": "Decreed"
+        }
+      ],
+      "orders": [
+        {
+          "orderNumber": "1",
+          "orderDate": "2021-04-04"
+        },
+        {
+          "orderNumber": "2",
+          "orderDate": "2021-08-12"
+        }
+      ],
+      "interimApps": [],
+      "transfers": [
+        {
+          "oldRef": "MHMC010021152020",
+          "newRef": "MHMC010033012021",
+          "transferDate": "2021-02-28"
+        }
+      ],
+      "updatedAt": "2026-10-28T04:30:00.000Z"
+    },
+    {
+      "id": "seed-mhmc030004452024",
+      "cnr": "MHMC030004452024",
+      "caseType": "Criminal Case",
+      "filingNumber": "700/2024",
+      "filingDate": "2024-03-15",
+      "registrationNumber": "445/2024",
+      "registrationDate": "2024-03-24",
+      "establishmentId": "a3266b42-1400-4301-a3e6-3fe747857c4e",
+      "courtNo": "7",
+      "judge": "Metropolitan Magistrate, Court 7",
+      "status": "pending",
+      "stage": "Framing of charge",
+      "nextHearingDate": "2026-11-07",
+      "source": "seed",
+      "saved": false,
+      "parties": [
+        {
+          "role": "petitioner",
+          "name": "State of Maharashtra",
+          "advocateName": "Public Prosecutor"
+        },
+        {
+          "role": "respondent",
+          "name": "Imran Shaikh",
+          "advocateName": "R. Mehta"
+        }
+      ],
+      "acts": [
+        {
+          "actName": "Indian Penal Code, 1860",
+          "section": "420"
+        }
+      ],
+      "fir": {
+        "policeStation": "Colaba",
+        "firNumber": "143",
+        "firYear": 2024
+      },
+      "history": [
+        {
+          "judge": "Metropolitan Magistrate, Court 7",
+          "businessOn": "2024-04-14",
+          "hearingDate": "2024-05-29",
+          "purpose": "Appearance"
+        },
+        {
+          "judge": "Metropolitan Magistrate, Court 7",
+          "businessOn": "2024-05-29",
+          "hearingDate": "2024-08-22",
+          "purpose": "Written statement"
+        },
+        {
+          "judge": "Metropolitan Magistrate, Court 7",
+          "businessOn": "2024-08-22",
+          "hearingDate": "2026-11-07",
+          "purpose": "Framing of charge"
+        }
+      ],
+      "orders": [
+        {
+          "orderNumber": "1",
+          "orderDate": "2024-04-14"
+        },
+        {
+          "orderNumber": "2",
+          "orderDate": "2024-08-22"
+        }
+      ],
+      "interimApps": [],
+      "transfers": [],
+      "updatedAt": "2026-10-28T04:30:00.000Z"
+    },
+    {
+      "id": "seed-kabn010017782024",
+      "cnr": "KABN010017782024",
+      "caseType": "Civil Suit",
+      "filingNumber": "2601/2024",
+      "filingDate": "2024-03-26",
+      "registrationNumber": "1778/2024",
+      "registrationDate": "2024-04-04",
+      "establishmentId": "85995fa5-1428-4cdb-a04f-636b732f41c8",
+      "courtNo": "9",
+      "judge": "Additional City Civil Judge, Court 9",
+      "status": "pending",
+      "stage": "Issues",
+      "nextHearingDate": "2026-11-02",
+      "source": "seed",
+      "saved": false,
+      "parties": [
+        {
+          "role": "petitioner",
+          "name": "Lakshmi Narayan",
+          "advocateName": "K. Rao"
+        },
+        {
+          "role": "respondent",
+          "name": "Prestige Layout Residents Assn",
+          "advocateName": "P. Hegde"
+        }
+      ],
+      "acts": [
+        {
+          "actName": "Transfer of Property Act, 1882",
+          "section": "53A"
+        }
+      ],
+      "history": [
+        {
+          "judge": "Additional City Civil Judge, Court 9",
+          "businessOn": "2024-04-25",
+          "hearingDate": "2024-06-09",
+          "purpose": "Appearance"
+        },
+        {
+          "judge": "Additional City Civil Judge, Court 9",
+          "businessOn": "2024-06-09",
+          "hearingDate": "2024-09-02",
+          "purpose": "Written statement"
+        },
+        {
+          "judge": "Additional City Civil Judge, Court 9",
+          "businessOn": "2024-09-02",
+          "hearingDate": "2026-11-02",
+          "purpose": "Issues"
+        }
+      ],
+      "orders": [
+        {
+          "orderNumber": "1",
+          "orderDate": "2024-04-25"
+        },
+        {
+          "orderNumber": "2",
+          "orderDate": "2024-09-02"
+        }
+      ],
+      "interimApps": [],
+      "transfers": [],
+      "updatedAt": "2026-10-28T04:30:00.000Z"
+    },
+    {
+      "id": "seed-kabn020006102023",
+      "cnr": "KABN020006102023",
+      "caseType": "Execution Petition",
+      "filingNumber": "988/2023",
+      "filingDate": "2023-04-07",
+      "registrationNumber": "610/2023",
+      "registrationDate": "2023-04-16",
+      "establishmentId": "163313fa-771d-4aba-af7b-68ee5e49bad3",
+      "courtNo": "3",
+      "judge": "Civil Judge J.D., Court 3",
+      "status": "pending",
+      "stage": "Warrant issued",
+      "nextHearingDate": "2026-10-26",
+      "source": "seed",
+      "saved": false,
+      "parties": [
+        {
+          "role": "petitioner",
+          "name": "Manjunath Gowda",
+          "advocateName": "K. Rao"
+        },
+        {
+          "role": "respondent",
+          "name": "Suresh Babu",
+          "advocateName": "self"
+        }
+      ],
+      "acts": [
+        {
+          "actName": "Code of Civil Procedure, 1908",
+          "section": "Order 21"
+        }
+      ],
+      "history": [
+        {
+          "judge": "Civil Judge J.D., Court 3",
+          "businessOn": "2023-05-07",
+          "hearingDate": "2023-06-21",
+          "purpose": "Appearance"
+        },
+        {
+          "judge": "Civil Judge J.D., Court 3",
+          "businessOn": "2023-06-21",
+          "hearingDate": "2023-09-14",
+          "purpose": "Written statement"
+        },
+        {
+          "judge": "Civil Judge J.D., Court 3",
+          "businessOn": "2023-09-14",
+          "hearingDate": "2026-10-26",
+          "purpose": "Warrant issued"
+        }
+      ],
+      "orders": [
+        {
+          "orderNumber": "1",
+          "orderDate": "2023-05-07"
+        },
+        {
+          "orderNumber": "2",
+          "orderDate": "2023-09-14"
+        }
+      ],
+      "interimApps": [],
+      "transfers": [],
+      "updatedAt": "2026-10-28T04:30:00.000Z"
+    },
+    {
+      "id": "seed-kamy010002042025",
+      "cnr": "KAMY010002042025",
+      "caseType": "Matrimonial Petition",
+      "filingNumber": "330/2025",
+      "filingDate": "2025-04-18",
+      "registrationNumber": "204/2025",
+      "registrationDate": "2025-04-27",
+      "establishmentId": "c04f4cc8-66e4-457e-aca6-c568b86e30c3",
+      "courtNo": "2",
+      "judge": "Principal Judge, Family Court",
+      "status": "pending",
+      "stage": "Mediation",
+      "nextHearingDate": "2026-11-11",
+      "source": "seed",
+      "saved": false,
+      "parties": [
+        {
+          "role": "petitioner",
+          "name": "Divya Shetty",
+          "advocateName": "P. Hegde"
+        },
+        {
+          "role": "respondent",
+          "name": "Rohan Shetty",
+          "advocateName": "A. Iyer"
+        }
+      ],
+      "acts": [
+        {
+          "actName": "Hindu Marriage Act, 1955",
+          "section": "13"
+        }
+      ],
+      "history": [
+        {
+          "judge": "Principal Judge, Family Court",
+          "businessOn": "2025-05-18",
+          "hearingDate": "2025-07-02",
+          "purpose": "Appearance"
+        },
+        {
+          "judge": "Principal Judge, Family Court",
+          "businessOn": "2025-07-02",
+          "hearingDate": "2025-09-25",
+          "purpose": "Written statement"
+        },
+        {
+          "judge": "Principal Judge, Family Court",
+          "businessOn": "2025-09-25",
+          "hearingDate": "2026-11-11",
+          "purpose": "Mediation"
+        }
+      ],
+      "orders": [
+        {
+          "orderNumber": "1",
+          "orderDate": "2025-05-18"
+        },
+        {
+          "orderNumber": "2",
+          "orderDate": "2025-09-25"
+        }
+      ],
+      "interimApps": [],
+      "transfers": [],
+      "updatedAt": "2026-10-28T04:30:00.000Z"
+    },
+    {
+      "id": "seed-dlst010019922024",
+      "cnr": "DLST010019922024",
+      "caseType": "Civil Suit",
+      "filingNumber": "3304/2024",
+      "filingDate": "2024-04-28",
+      "registrationNumber": "1992/2024",
+      "registrationDate": "2024-05-07",
+      "establishmentId": "1c263a12-a92d-499b-acb5-860cbfa3098f",
+      "courtNo": "305",
+      "judge": "Civil Judge, Court 305",
+      "status": "pending",
+      "stage": "Admission/denial of documents",
+      "nextHearingDate": "2026-11-04",
+      "source": "seed",
+      "saved": false,
+      "parties": [
+        {
+          "role": "petitioner",
+          "name": "Arora Builders LLP",
+          "advocateName": "V. Malhotra"
+        },
+        {
+          "role": "respondent",
+          "name": "Neha Kapoor",
+          "advocateName": "S. Bhatia"
+        }
+      ],
+      "acts": [
+        {
+          "actName": "Specific Relief Act, 1963",
+          "section": "34"
+        }
+      ],
+      "history": [
+        {
+          "judge": "Civil Judge, Court 305",
+          "businessOn": "2024-05-28",
+          "hearingDate": "2024-07-12",
+          "purpose": "Appearance"
+        },
+        {
+          "judge": "Civil Judge, Court 305",
+          "businessOn": "2024-07-12",
+          "hearingDate": "2024-10-05",
+          "purpose": "Written statement"
+        },
+        {
+          "judge": "Civil Judge, Court 305",
+          "businessOn": "2024-10-05",
+          "hearingDate": "2026-11-04",
+          "purpose": "Admission/denial of documents"
+        }
+      ],
+      "orders": [
+        {
+          "orderNumber": "1",
+          "orderDate": "2024-05-28"
+        },
+        {
+          "orderNumber": "2",
+          "orderDate": "2024-10-05"
+        }
+      ],
+      "interimApps": [],
+      "transfers": [],
+      "updatedAt": "2026-10-28T04:30:00.000Z"
+    },
+    {
+      "id": "seed-dlst030008812023",
+      "cnr": "DLST030008812023",
+      "caseType": "Criminal Case",
+      "filingNumber": "1402/2023",
+      "filingDate": "2023-05-10",
+      "registrationNumber": "881/2023",
+      "registrationDate": "2023-05-19",
+      "establishmentId": "523f8c5d-2cb7-4f80-a3b6-d85c9561e604",
+      "courtNo": "211",
+      "judge": "Metropolitan Magistrate, Court 211",
+      "status": "pending",
+      "stage": "Defence evidence",
+      "nextHearingDate": "2026-10-29",
+      "source": "seed",
+      "saved": false,
+      "parties": [
+        {
+          "role": "petitioner",
+          "name": "State",
+          "advocateName": "Additional PP"
+        },
+        {
+          "role": "respondent",
+          "name": "Karan Sethi",
+          "advocateName": "V. Malhotra"
+        }
+      ],
+      "acts": [
+        {
+          "actName": "Negotiable Instruments Act, 1881",
+          "section": "138"
+        }
+      ],
+      "fir": {
+        "policeStation": "Malviya Nagar",
+        "firNumber": "56",
+        "firYear": 2023
+      },
+      "history": [
+        {
+          "judge": "Metropolitan Magistrate, Court 211",
+          "businessOn": "2023-06-09",
+          "hearingDate": "2023-07-24",
+          "purpose": "Appearance"
+        },
+        {
+          "judge": "Metropolitan Magistrate, Court 211",
+          "businessOn": "2023-07-24",
+          "hearingDate": "2023-10-17",
+          "purpose": "Written statement"
+        },
+        {
+          "judge": "Metropolitan Magistrate, Court 211",
+          "businessOn": "2023-10-17",
+          "hearingDate": "2026-10-29",
+          "purpose": "Defence evidence"
+        }
+      ],
+      "orders": [
+        {
+          "orderNumber": "1",
+          "orderDate": "2023-06-09"
+        },
+        {
+          "orderNumber": "2",
+          "orderDate": "2023-10-17"
+        }
+      ],
+      "interimApps": [],
+      "transfers": [],
+      "updatedAt": "2026-10-28T04:30:00.000Z"
+    },
+    {
+      "id": "seed-dlst040000672025",
+      "cnr": "DLST040000672025",
+      "caseType": "Sessions Case",
+      "filingNumber": "90/2025",
+      "filingDate": "2025-05-21",
+      "registrationNumber": "67/2025",
+      "registrationDate": "2025-05-30",
+      "establishmentId": "80e0eb19-baa2-4154-a8bd-bca24b421fc2",
+      "courtNo": "4",
+      "judge": "Additional Sessions Judge-04",
+      "status": "pending",
+      "stage": "Prosecution evidence",
+      "nextHearingDate": "2026-11-18",
+      "source": "seed",
+      "saved": false,
+      "parties": [
+        {
+          "role": "petitioner",
+          "name": "State",
+          "advocateName": "Additional PP"
+        },
+        {
+          "role": "respondent",
+          "name": "Deepak Rawat",
+          "advocateName": "S. Bhatia"
+        }
+      ],
+      "acts": [
+        {
+          "actName": "Bharatiya Nyaya Sanhita, 2023",
+          "section": "109"
+        }
+      ],
+      "fir": {
+        "policeStation": "Hauz Khas",
+        "firNumber": "301",
+        "firYear": 2025
+      },
+      "history": [
+        {
+          "judge": "Additional Sessions Judge-04",
+          "businessOn": "2025-06-20",
+          "hearingDate": "2025-08-04",
+          "purpose": "Appearance"
+        },
+        {
+          "judge": "Additional Sessions Judge-04",
+          "businessOn": "2025-08-04",
+          "hearingDate": "2025-10-28",
+          "purpose": "Written statement"
+        },
+        {
+          "judge": "Additional Sessions Judge-04",
+          "businessOn": "2025-10-28",
+          "hearingDate": "2026-11-18",
+          "purpose": "Prosecution evidence"
+        }
+      ],
+      "orders": [
+        {
+          "orderNumber": "1",
+          "orderDate": "2025-06-20"
+        },
+        {
+          "orderNumber": "2",
+          "orderDate": "2025-10-28"
+        }
+      ],
+      "interimApps": [],
+      "transfers": [],
+      "updatedAt": "2026-10-28T04:30:00.000Z"
+    },
+    {
+      "id": "seed-hcbm010004562025",
+      "cnr": "HCBM010004562025",
+      "caseType": "Writ Petition (Civil)",
+      "filingNumber": "1002/2025",
+      "filingDate": "2025-06-01",
+      "registrationNumber": "456/2025",
+      "registrationDate": "2025-06-10",
+      "establishmentId": "c9a9dc54-3db9-4efc-a183-f84080b8b28b",
+      "courtNo": "12",
+      "judge": "Division Bench, Court 12",
+      "status": "pending",
+      "stage": "Admission",
+      "nextHearingDate": "2026-11-03",
+      "source": "seed",
+      "saved": false,
+      "parties": [
+        {
+          "role": "petitioner",
+          "name": "Shree Ganesh Co-op Housing Society",
+          "advocateName": "N. Deshpande"
+        },
+        {
+          "role": "respondent",
+          "name": "State of Maharashtra",
+          "advocateName": "Government Pleader"
+        }
+      ],
+      "acts": [
+        {
+          "actName": "Constitution of India",
+          "section": "226"
+        }
+      ],
+      "history": [
+        {
+          "judge": "Division Bench, Court 12",
+          "businessOn": "2025-07-01",
+          "hearingDate": "2025-08-15",
+          "purpose": "Appearance"
+        },
+        {
+          "judge": "Division Bench, Court 12",
+          "businessOn": "2025-08-15",
+          "hearingDate": "2025-11-08",
+          "purpose": "Written statement"
+        },
+        {
+          "judge": "Division Bench, Court 12",
+          "businessOn": "2025-11-08",
+          "hearingDate": "2026-11-03",
+          "purpose": "Admission"
+        }
+      ],
+      "orders": [
+        {
+          "orderNumber": "1",
+          "orderDate": "2025-07-01"
+        },
+        {
+          "orderNumber": "2",
+          "orderDate": "2025-11-08"
+        }
+      ],
+      "interimApps": [],
+      "transfers": [],
+      "updatedAt": "2026-10-28T04:30:00.000Z"
+    },
+    {
+      "id": "seed-hcka010007892024",
+      "cnr": "HCKA010007892024",
+      "caseType": "Criminal Petition",
+      "filingNumber": "1450/2024",
+      "filingDate": "2024-06-11",
+      "registrationNumber": "789/2024",
+      "registrationDate": "2024-06-20",
+      "establishmentId": "7e71f980-a8b9-46de-a11c-de3b6f811748",
+      "courtNo": "7",
+      "judge": "Single Bench, Court 7",
+      "status": "pending",
+      "stage": "Hearing",
+      "nextHearingDate": "2026-11-06",
+      "source": "seed",
+      "saved": false,
+      "parties": [
+        {
+          "role": "petitioner",
+          "name": "Prakash Murthy",
+          "advocateName": "N. Deshpande"
+        },
+        {
+          "role": "respondent",
+          "name": "State of Karnataka",
+          "advocateName": "State Public Prosecutor"
+        }
+      ],
+      "acts": [
+        {
+          "actName": "Code of Criminal Procedure, 1973",
+          "section": "482"
+        }
+      ],
+      "history": [
+        {
+          "judge": "Single Bench, Court 7",
+          "businessOn": "2024-07-11",
+          "hearingDate": "2024-08-25",
+          "purpose": "Appearance"
+        },
+        {
+          "judge": "Single Bench, Court 7",
+          "businessOn": "2024-08-25",
+          "hearingDate": "2024-11-18",
+          "purpose": "Written statement"
+        },
+        {
+          "judge": "Single Bench, Court 7",
+          "businessOn": "2024-11-18",
+          "hearingDate": "2026-11-06",
+          "purpose": "Hearing"
+        }
+      ],
+      "orders": [
+        {
+          "orderNumber": "1",
+          "orderDate": "2024-07-11"
+        },
+        {
+          "orderNumber": "2",
+          "orderDate": "2024-11-18"
+        }
+      ],
+      "interimApps": [],
+      "transfers": [],
+      "updatedAt": "2026-10-28T04:30:00.000Z"
+    },
+    {
+      "id": "seed-hcdl010001232026",
+      "cnr": "HCDL010001232026",
+      "caseType": "Letters Patent Appeal",
+      "filingNumber": "210/2026",
+      "filingDate": "2026-06-23",
+      "registrationNumber": "123/2026",
+      "registrationDate": "2026-07-02",
+      "establishmentId": "b5dd818d-7102-4293-ad78-7ad65f8fcac3",
+      "courtNo": "2",
+      "judge": "Division Bench, Court 2",
+      "status": "pending",
+      "stage": "Notice",
+      "nextHearingDate": "2026-10-30",
+      "source": "seed",
+      "saved": false,
+      "parties": [
+        {
+          "role": "petitioner",
+          "name": "Yamuna Traders",
+          "advocateName": "N. Deshpande"
+        },
+        {
+          "role": "respondent",
+          "name": "Delhi Development Authority",
+          "advocateName": "Standing Counsel"
+        }
+      ],
+      "acts": [
+        {
+          "actName": "Code of Civil Procedure, 1908",
+          "section": "100A"
+        }
+      ],
+      "history": [
+        {
+          "judge": "Division Bench, Court 2",
+          "businessOn": "2026-07-23",
+          "hearingDate": "2026-09-06",
+          "purpose": "Appearance"
+        },
+        {
+          "judge": "Division Bench, Court 2",
+          "businessOn": "2026-09-06",
+          "hearingDate": "2026-11-30",
+          "purpose": "Written statement"
+        },
+        {
+          "judge": "Division Bench, Court 2",
+          "businessOn": "2026-11-30",
+          "hearingDate": "2026-10-30",
+          "purpose": "Notice"
+        }
+      ],
+      "orders": [
+        {
+          "orderNumber": "1",
+          "orderDate": "2026-07-23"
+        },
+        {
+          "orderNumber": "2",
+          "orderDate": "2026-11-30"
+        }
+      ],
+      "interimApps": [],
+      "transfers": [],
+      "updatedAt": "2026-10-28T04:30:00.000Z"
+    }
+  ]
+}
