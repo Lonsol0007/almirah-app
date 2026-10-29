@@ -25,7 +25,7 @@ test("signing up creates a profile", async () => {
 
 test("reference data is readable by any signed-in user", async () => {
   const r = await as(B, "select count(*)::int as n from court_establishments");
-  assert.equal(r.rows[0].n, 25); // 5 district complexes × 4 courts + 5 High Court sides
+  assert.equal(r.rows[0].n, 35); // 5 district complexes × 4 courts + 5 High Court sides + 10 consumer benches
 });
 
 test("upsert_case_tree creates a case with its children", async () => {

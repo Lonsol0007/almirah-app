@@ -34,3 +34,13 @@ test("court level defaults to district, can be set to high, rejects anything els
   assert.equal((await as("select court_level from profiles where id = $1", [U])).rows[0].court_level, "high");
   await assert.rejects(as("update profiles set court_level = 'supreme' where id = $1", [U]));
 });
+
+test("consumer commissions are their own kind, with benches; consumer is a court level", async () => {
+  const r = await as(`select c.name, count(e.id)::int benches from court_complexes c
+    join court_establishments e on e.complex_id = c.id where c.kind = 'consumer' group by c.name order by c.name`);
+  assert.equal(r.rows.length, 7);
+  assert.deepEqual(r.rows.find((x) => x.name === "National Consumer Commission"), { name: "National Consumer Commission", benches: 2 });
+  await as("update profiles set court_level = 'consumer' where id = $1", [U]);
+  assert.equal((await as("select court_level from profiles where id = $1", [U])).rows[0].court_level, "consumer");
+  await assert.rejects(as("insert into court_complexes (district_id, name, kind) select id, 'X', 'tribunal' from districts limit 1"));
+});

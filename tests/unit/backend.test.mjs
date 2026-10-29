@@ -5,6 +5,9 @@ import Stripe from "stripe";
 import { handleStripeEvent, mapStatus, rowFromSubscription } from "../../src/lib/billing/webhook.ts";
 import { reminderEmail } from "../../src/lib/email/reminder.ts";
 import { safeNext } from "../../src/lib/safe-next.ts";
+import { googleCalendarUrl } from "../../src/lib/google-calendar.ts";
+import { caseRef, consumerRef, isConsumerRef } from "../../src/lib/consumer.ts";
+import { buildSeed } from "../../src/lib/data/seed.ts";
 
 const USER = "11111111-1111-4111-a111-111111111111";
 
@@ -129,7 +132,7 @@ test("reminder email: one case today, escaped, links to the case", () => {
   assert.equal(m.subject, "Hearing today: Deshmukh <vs> PMC");
   assert.ok(m.html.includes("Deshmukh &lt;vs&gt; PMC"));
   assert.ok(!m.html.includes("<vs>"));
-  assert.ok(m.text.includes("https://app.example/cases/c1"));
+  assert.ok(m.text.includes("https://app.example/case?id=c1"));
 });
 
 test("reminder email: several cases become one digest", () => {
@@ -152,4 +155,40 @@ test("post-login redirects stay on this site", () => {
   assert.equal(safeNext("//evil.example"), "/");
   assert.equal(safeNext("/\\evil.example"), "/");
   assert.equal(safeNext(null), "/");
+});
+
+test("googleCalendarUrl: all-day event ending the next day, across a month end", () => {
+  const u = new URL(googleCalendarUrl({ title: "Hearing: A vs B", date: "2026-10-31", location: "Pune" }));
+  assert.equal(u.origin + u.pathname, "https://calendar.google.com/calendar/render");
+  assert.equal(u.searchParams.get("action"), "TEMPLATE");
+  assert.equal(u.searchParams.get("text"), "Hearing: A vs B");
+  assert.equal(u.searchParams.get("dates"), "20261031/20261101");
+  assert.equal(u.searchParams.get("location"), "Pune");
+  assert.equal(u.searchParams.has("details"), false);
+});
+
+test("consumerRef: 16 characters, stable, ignores spacing and case, differs by bench", () => {
+  const a = consumerRef("dcdrc-pune-main", "CC/77/2026");
+  assert.match(a, /^EJ[A-Z0-9]{14}$/);
+  assert.equal(consumerRef("dcdrc-pune-main", " cc / 77 / 2026 "), a);
+  assert.notEqual(consumerRef("dcdrc-mumbai-main", "CC/77/2026"), a);
+  assert.notEqual(consumerRef("dcdrc-pune-main", "CC/78/2026"), a);
+  assert.ok(isConsumerRef(a));
+  assert.ok(!isConsumerRef("MHPU010004212024"));
+  assert.equal(caseRef({ cnr: a, registrationNumber: "CC/77/2026" }), "CC/77/2026");
+  assert.equal(caseRef({ cnr: "MHPU010004212024", registrationNumber: "421/2024" }), "MHPU010004212024");
+});
+
+test("the demo consumer case is keyed the way the add-case form would key it", () => {
+  const c = buildSeed("2026-10-29").find((x) => x.caseType === "Consumer Complaint");
+  assert.equal(c.cnr, consumerRef(c.establishmentId, c.registrationNumber));
+});
+
+test("reminder email: consumer cases say e-Jagriti, not a CNR", () => {
+  const m = reminderEmail({
+    brand: "Almirah", siteUrl: "https://x.test", accent: "#000", today: "2026-10-29",
+    items: [{ caseId: "1", cnr: consumerRef("b", "CC/1/2026"), title: "A vs B", hearingDate: "2026-10-29" }],
+  });
+  assert.match(m.text, /\(e-Jagriti\)/);
+  assert.doesNotMatch(m.text, /CNR EJ/);
 });

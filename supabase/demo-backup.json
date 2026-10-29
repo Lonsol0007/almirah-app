@@ -1,7 +1,7 @@
 {
   "format": "almirah-backup",
   "version": 1,
-  "exportedAt": "2026-10-28T14:52:05.031Z",
+  "exportedAt": "2026-10-29T09:57:12.578Z",
   "cases": [
     {
       "id": "seed-mhpu010004212024",
@@ -16,7 +16,7 @@
       "judge": "Civil Judge S.D., Court 4",
       "status": "pending",
       "stage": "Evidence",
-      "nextHearingDate": "2026-10-28",
+      "nextHearingDate": "2026-10-29",
       "source": "seed",
       "saved": true,
       "parties": [
@@ -53,7 +53,7 @@
         {
           "judge": "Civil Judge S.D., Court 4",
           "businessOn": "2024-06-28",
-          "hearingDate": "2026-10-28",
+          "hearingDate": "2026-10-29",
           "purpose": "Evidence"
         }
       ],
@@ -76,7 +76,7 @@
         }
       ],
       "transfers": [],
-      "updatedAt": "2026-10-28T04:30:00.000Z"
+      "updatedAt": "2026-10-29T04:30:00.000Z"
     },
     {
       "id": "seed-mhpu020011872023",
@@ -91,7 +91,7 @@
       "judge": "Chief Judicial Magistrate",
       "status": "pending",
       "stage": "Arguments",
-      "nextHearingDate": "2026-10-29",
+      "nextHearingDate": "2026-10-30",
       "source": "seed",
       "saved": true,
       "parties": [
@@ -133,7 +133,7 @@
         {
           "judge": "Chief Judicial Magistrate",
           "businessOn": "2023-07-10",
-          "hearingDate": "2026-10-29",
+          "hearingDate": "2026-10-30",
           "purpose": "Arguments"
         }
       ],
@@ -149,7 +149,7 @@
       ],
       "interimApps": [],
       "transfers": [],
-      "updatedAt": "2026-10-28T04:30:00.000Z"
+      "updatedAt": "2026-10-29T04:30:00.000Z"
     },
     {
       "id": "seed-mhpu010009032022",
@@ -164,7 +164,7 @@
       "judge": "Civil Judge S.D., Court 4",
       "status": "pending",
       "stage": "Final hearing",
-      "nextHearingDate": "2026-10-28",
+      "nextHearingDate": "2026-10-29",
       "source": "seed",
       "saved": false,
       "parties": [
@@ -201,7 +201,7 @@
         {
           "judge": "Civil Judge S.D., Court 4",
           "businessOn": "2022-07-21",
-          "hearingDate": "2026-10-28",
+          "hearingDate": "2026-10-29",
           "purpose": "Final hearing"
         }
       ],
@@ -217,7 +217,7 @@
       ],
       "interimApps": [],
       "transfers": [],
-      "updatedAt": "2026-10-28T04:30:00.000Z"
+      "updatedAt": "2026-10-29T04:30:00.000Z"
     },
     {
       "id": "seed-mhpu040002562025",
@@ -232,7 +232,7 @@
       "judge": "District and Sessions Judge",
       "status": "pending",
       "stage": "Reply awaited",
-      "nextHearingDate": "2026-10-31",
+      "nextHearingDate": "2026-11-01",
       "source": "seed",
       "saved": true,
       "parties": [
@@ -274,7 +274,7 @@
         {
           "judge": "District and Sessions Judge",
           "businessOn": "2025-08-01",
-          "hearingDate": "2026-10-31",
+          "hearingDate": "2026-11-01",
           "purpose": "Reply awaited"
         }
       ],
@@ -290,7 +290,7 @@
       ],
       "interimApps": [],
       "transfers": [],
-      "updatedAt": "2026-10-28T04:30:00.000Z"
+      "updatedAt": "2026-10-29T04:30:00.000Z"
     },
     {
       "id": "seed-mhmc010033012021",
@@ -364,7 +364,7 @@
           "transferDate": "2021-02-28"
         }
       ],
-      "updatedAt": "2026-10-28T04:30:00.000Z"
+      "updatedAt": "2026-10-29T04:30:00.000Z"
     },
     {
       "id": "seed-mhmc030004452024",
@@ -379,7 +379,7 @@
       "judge": "Metropolitan Magistrate, Court 7",
       "status": "pending",
       "stage": "Framing of charge",
-      "nextHearingDate": "2026-11-07",
+      "nextHearingDate": "2026-11-08",
       "source": "seed",
       "saved": false,
       "parties": [
@@ -421,7 +421,7 @@
         {
           "judge": "Metropolitan Magistrate, Court 7",
           "businessOn": "2024-08-22",
-          "hearingDate": "2026-11-07",
+          "hearingDate": "2026-11-08",
           "purpose": "Framing of charge"
         }
       ],
@@ -437,7 +437,7 @@
       ],
       "interimApps": [],
       "transfers": [],
-      "updatedAt": "2026-10-28T04:30:00.000Z"
+      "updatedAt": "2026-10-29T04:30:00.000Z"
     },
     {
       "id": "seed-kabn010017782024",
@@ -452,7 +452,7 @@
       "judge": "Additional City Civil Judge, Court 9",
       "status": "pending",
       "stage": "Issues",
-      "nextHearingDate": "2026-11-02",
+      "nextHearingDate": "2026-11-03",
       "source": "seed",
       "saved": false,
       "parties": [
@@ -489,7 +489,7 @@
         {
           "judge": "Additional City Civil Judge, Court 9",
           "businessOn": "2024-09-02",
-          "hearingDate": "2026-11-02",
+          "hearingDate": "2026-11-03",
           "purpose": "Issues"
         }
       ],
@@ -505,7 +505,7 @@
       ],
       "interimApps": [],
       "transfers": [],
-      "updatedAt": "2026-10-28T04:30:00.000Z"
+      "updatedAt": "2026-10-29T04:30:00.000Z"
     },
     {
       "id": "seed-kabn020006102023",
@@ -520,7 +520,7 @@
       "judge": "Civil Judge J.D., Court 3",
       "status": "pending",
       "stage": "Warrant issued",
-      "nextHearingDate": "2026-10-26",
+      "nextHearingDate": "2026-10-27",
       "source": "seed",
       "saved": false,
       "parties": [
@@ -557,7 +557,7 @@
         {
           "judge": "Civil Judge J.D., Court 3",
           "businessOn": "2023-09-14",
-          "hearingDate": "2026-10-26",
+          "hearingDate": "2026-10-27",
           "purpose": "Warrant issued"
         }
       ],
@@ -573,7 +573,7 @@
       ],
       "interimApps": [],
       "transfers": [],
-      "updatedAt": "2026-10-28T04:30:00.000Z"
+      "updatedAt": "2026-10-29T04:30:00.000Z"
     },
     {
       "id": "seed-kamy010002042025",
@@ -588,7 +588,7 @@
       "judge": "Principal Judge, Family Court",
       "status": "pending",
       "stage": "Mediation",
-      "nextHearingDate": "2026-11-11",
+      "nextHearingDate": "2026-11-12",
       "source": "seed",
       "saved": false,
       "parties": [
@@ -625,7 +625,7 @@
         {
           "judge": "Principal Judge, Family Court",
           "businessOn": "2025-09-25",
-          "hearingDate": "2026-11-11",
+          "hearingDate": "2026-11-12",
           "purpose": "Mediation"
         }
       ],
@@ -641,7 +641,7 @@
       ],
       "interimApps": [],
       "transfers": [],
-      "updatedAt": "2026-10-28T04:30:00.000Z"
+      "updatedAt": "2026-10-29T04:30:00.000Z"
     },
     {
       "id": "seed-dlst010019922024",
@@ -656,7 +656,7 @@
       "judge": "Civil Judge, Court 305",
       "status": "pending",
       "stage": "Admission/denial of documents",
-      "nextHearingDate": "2026-11-04",
+      "nextHearingDate": "2026-11-05",
       "source": "seed",
       "saved": false,
       "parties": [
@@ -693,7 +693,7 @@
         {
           "judge": "Civil Judge, Court 305",
           "businessOn": "2024-10-05",
-          "hearingDate": "2026-11-04",
+          "hearingDate": "2026-11-05",
           "purpose": "Admission/denial of documents"
         }
       ],
@@ -709,7 +709,7 @@
       ],
       "interimApps": [],
       "transfers": [],
-      "updatedAt": "2026-10-28T04:30:00.000Z"
+      "updatedAt": "2026-10-29T04:30:00.000Z"
     },
     {
       "id": "seed-dlst030008812023",
@@ -724,7 +724,7 @@
       "judge": "Metropolitan Magistrate, Court 211",
       "status": "pending",
       "stage": "Defence evidence",
-      "nextHearingDate": "2026-10-29",
+      "nextHearingDate": "2026-10-30",
       "source": "seed",
       "saved": false,
       "parties": [
@@ -766,7 +766,7 @@
         {
           "judge": "Metropolitan Magistrate, Court 211",
           "businessOn": "2023-10-17",
-          "hearingDate": "2026-10-29",
+          "hearingDate": "2026-10-30",
           "purpose": "Defence evidence"
         }
       ],
@@ -782,7 +782,7 @@
       ],
       "interimApps": [],
       "transfers": [],
-      "updatedAt": "2026-10-28T04:30:00.000Z"
+      "updatedAt": "2026-10-29T04:30:00.000Z"
     },
     {
       "id": "seed-dlst040000672025",
@@ -797,7 +797,7 @@
       "judge": "Additional Sessions Judge-04",
       "status": "pending",
       "stage": "Prosecution evidence",
-      "nextHearingDate": "2026-11-18",
+      "nextHearingDate": "2026-11-19",
       "source": "seed",
       "saved": false,
       "parties": [
@@ -839,7 +839,7 @@
         {
           "judge": "Additional Sessions Judge-04",
           "businessOn": "2025-10-28",
-          "hearingDate": "2026-11-18",
+          "hearingDate": "2026-11-19",
           "purpose": "Prosecution evidence"
         }
       ],
@@ -855,7 +855,7 @@
       ],
       "interimApps": [],
       "transfers": [],
-      "updatedAt": "2026-10-28T04:30:00.000Z"
+      "updatedAt": "2026-10-29T04:30:00.000Z"
     },
     {
       "id": "seed-hcbm010004562025",
@@ -870,7 +870,7 @@
       "judge": "Division Bench, Court 12",
       "status": "pending",
       "stage": "Admission",
-      "nextHearingDate": "2026-11-03",
+      "nextHearingDate": "2026-11-04",
       "source": "seed",
       "saved": false,
       "parties": [
@@ -907,7 +907,7 @@
         {
           "judge": "Division Bench, Court 12",
           "businessOn": "2025-11-08",
-          "hearingDate": "2026-11-03",
+          "hearingDate": "2026-11-04",
           "purpose": "Admission"
         }
       ],
@@ -923,7 +923,7 @@
       ],
       "interimApps": [],
       "transfers": [],
-      "updatedAt": "2026-10-28T04:30:00.000Z"
+      "updatedAt": "2026-10-29T04:30:00.000Z"
     },
     {
       "id": "seed-hcka010007892024",
@@ -938,7 +938,7 @@
       "judge": "Single Bench, Court 7",
       "status": "pending",
       "stage": "Hearing",
-      "nextHearingDate": "2026-11-06",
+      "nextHearingDate": "2026-11-07",
       "source": "seed",
       "saved": false,
       "parties": [
@@ -975,7 +975,7 @@
         {
           "judge": "Single Bench, Court 7",
           "businessOn": "2024-11-18",
-          "hearingDate": "2026-11-06",
+          "hearingDate": "2026-11-07",
           "purpose": "Hearing"
         }
       ],
@@ -991,7 +991,7 @@
       ],
       "interimApps": [],
       "transfers": [],
-      "updatedAt": "2026-10-28T04:30:00.000Z"
+      "updatedAt": "2026-10-29T04:30:00.000Z"
     },
     {
       "id": "seed-hcdl010001232026",
@@ -1006,7 +1006,7 @@
       "judge": "Division Bench, Court 2",
       "status": "pending",
       "stage": "Notice",
-      "nextHearingDate": "2026-10-30",
+      "nextHearingDate": "2026-10-31",
       "source": "seed",
       "saved": false,
       "parties": [
@@ -1043,7 +1043,7 @@
         {
           "judge": "Division Bench, Court 2",
           "businessOn": "2026-11-30",
-          "hearingDate": "2026-10-30",
+          "hearingDate": "2026-10-31",
           "purpose": "Notice"
         }
       ],
@@ -1059,7 +1059,74 @@
       ],
       "interimApps": [],
       "transfers": [],
-      "updatedAt": "2026-10-28T04:30:00.000Z"
+      "updatedAt": "2026-10-29T04:30:00.000Z"
+    },
+    {
+      "id": "seed-ej0xjwl8e1um847w",
+      "cnr": "EJ0XJWL8E1UM847W",
+      "caseType": "Consumer Complaint",
+      "filingNumber": "DC/0702/2025",
+      "filingDate": "2025-07-04",
+      "registrationNumber": "CC/412/2025",
+      "registrationDate": "2025-07-13",
+      "establishmentId": "7c9af820-c452-49ed-afa6-cbc339a97b77",
+      "judge": "President and Member",
+      "status": "pending",
+      "stage": "Evidence by affidavit",
+      "nextHearingDate": "2026-11-02",
+      "source": "seed",
+      "saved": false,
+      "parties": [
+        {
+          "role": "petitioner",
+          "name": "Meera Joshi",
+          "advocateName": "A. Kulkarni"
+        },
+        {
+          "role": "respondent",
+          "name": "Skyline Developers Pvt Ltd",
+          "advocateName": "S. Joshi"
+        }
+      ],
+      "acts": [
+        {
+          "actName": "Consumer Protection Act, 2019",
+          "section": "35"
+        }
+      ],
+      "history": [
+        {
+          "judge": "President and Member",
+          "businessOn": "2025-08-03",
+          "hearingDate": "2025-09-17",
+          "purpose": "Appearance"
+        },
+        {
+          "judge": "President and Member",
+          "businessOn": "2025-09-17",
+          "hearingDate": "2025-12-11",
+          "purpose": "Written statement"
+        },
+        {
+          "judge": "President and Member",
+          "businessOn": "2025-12-11",
+          "hearingDate": "2026-11-02",
+          "purpose": "Evidence by affidavit"
+        }
+      ],
+      "orders": [
+        {
+          "orderNumber": "1",
+          "orderDate": "2025-08-03"
+        },
+        {
+          "orderNumber": "2",
+          "orderDate": "2025-12-11"
+        }
+      ],
+      "interimApps": [],
+      "transfers": [],
+      "updatedAt": "2026-10-29T04:30:00.000Z"
     }
   ]
 }

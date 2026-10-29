@@ -84,6 +84,7 @@ test.describe("F09 language", () => {
   });
 
   test("F09-L4 secondary screens in Hindi", async ({ page }) => {
+    test.slow(); // seven screens, each with an axe scan
     await page.goto("/settings");
     await page.getByLabel("Language").selectOption("hi");
     await page.getByRole("button", { name: "Save settings" }).click();

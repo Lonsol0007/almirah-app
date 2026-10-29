@@ -13,6 +13,10 @@ const day = (iso: string) => {
   return `${d} ${MONTHS[m - 1]} ${y}`;
 };
 
+// Consumer commission cases carry an "EJ…" stand-in, not a real CNR (see ../consumer.ts; inlined because this
+// file also runs under plain node in the unit tests).
+const refText = (cnr: string) => (cnr.startsWith("EJ") ? "e-Jagriti" : `CNR ${cnr}`);
+
 const esc = (s: string) => s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
 
 export function reminderEmail(opts: { brand: string; siteUrl: string; accent: string; items: ReminderItem[]; today: string }) {
@@ -25,7 +29,7 @@ export function reminderEmail(opts: { brand: string; siteUrl: string; accent: st
   const text = [
     `You have ${items.length === 1 ? "a hearing" : `${items.length} hearings`} coming up:`,
     "",
-    ...items.map((i) => `- ${day(i.hearingDate)} · ${i.title} (CNR ${i.cnr})\n  ${siteUrl}/cases/${i.caseId}`),
+    ...items.map((i) => `- ${day(i.hearingDate)} · ${i.title} (${refText(i.cnr)})\n  ${siteUrl}/case?id=${encodeURIComponent(i.caseId)}`),
     "",
     `Change when these arrive in Settings: ${siteUrl}/settings`,
     `— ${brand}`,
@@ -35,8 +39,8 @@ export function reminderEmail(opts: { brand: string; siteUrl: string; accent: st
     .map(
       (i) => `<tr>
   <td style="padding:10px 0;border-top:1px solid #e2e5ea;font:14px/20px system-ui,sans-serif;color:#15181d">
-    <a href="${esc(`${siteUrl}/cases/${i.caseId}`)}" style="color:${accent};font-weight:600;text-decoration:none">${esc(i.title)}</a><br>
-    <span style="color:#59616c">${esc(day(i.hearingDate))} · CNR ${esc(i.cnr)}</span>
+    <a href="${esc(`${siteUrl}/case?id=${encodeURIComponent(i.caseId)}`)}" style="color:${accent};font-weight:600;text-decoration:none">${esc(i.title)}</a><br>
+    <span style="color:#59616c">${esc(day(i.hearingDate))} · ${esc(refText(i.cnr))}</span>
   </td>
 </tr>`,
     )

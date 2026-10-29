@@ -5,7 +5,7 @@ test.describe("F01 look up a case by CNR", () => {
     await page.goto("/cnr");
     await page.getByLabel("CNR number").fill(SEED.todayPune);
     await page.getByRole("button", { name: "Look up" }).click();
-    await expect(page).toHaveURL(/\/cases\//);
+    await expect(page).toHaveURL(/\/case\?id=/);
     await expect(page.getByRole("heading", { level: 2, name: /Ramesh Deshmukh vs Pune Municipal Corporation/ })).toBeVisible();
     await expect(page.getByText("Hearing today").first()).toBeVisible();
     await scan(page);
@@ -60,7 +60,7 @@ test.describe("F01 look up a case by CNR", () => {
   });
 
   test("F01-N3 a case id that doesn't exist shows not found", async ({ page }) => {
-    await page.goto("/cases/does-not-exist");
+    await page.goto("/case?id=does-not-exist");
     await expect(page.getByRole("heading", { name: "Case not found" })).toBeVisible();
   });
 

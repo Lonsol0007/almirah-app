@@ -77,12 +77,12 @@ export interface CourtCase {
   updatedAt: string;
 }
 
-export type CourtLevel = "district" | "high";
+export type CourtLevel = "district" | "high" | "consumer";
 
 export interface LocalityNode {
   id: string;
   name: string;
   parentId?: string;
-  /** Court complexes only: a district court complex or a High Court bench. */
-  kind?: "district" | "high_court";
+  /** Court complexes only: a district court complex, a High Court bench or a consumer commission. */
+  kind?: "district" | "high_court" | "consumer";
 }

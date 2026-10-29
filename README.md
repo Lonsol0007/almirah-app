@@ -6,10 +6,13 @@ Almirah is independent and not affiliated with any court or government body. It 
 
 ## What it does
 
-- **Today first** — Home opens on today's hearings, with CNR lookup on top
+- **Diary first** — Home opens on the calendar; pick a day to see its hearings, CNR lookup below
 - **Record a hearing** — what happened, the stage, the next date, or disposal; the history writes itself
 - **Search** your cases by case number, party, advocate (name or bar registration), FIR, filing number, case type or Act
-- **District courts and High Courts** — court pickers switch between the two
+- **District courts, High Courts and consumer commissions** — court pickers switch between the three.
+  Consumer cases (District, State, National commissions) are added by their e-Jagriti case number and tracked
+  by hand, with a link to the e-Jagriti portal: it has no public API
+- **Add to Google Calendar** for a case's next hearing
 - **Cause list** for a court, and an advocate's day list across a whole complex
 - **Calendar** of hearings, **My cases** grouped by date or court
 - **Backup and restore** that matches by CNR — restoring twice never duplicates a case
@@ -50,6 +53,21 @@ node --test tests/db/rls.test.mjs tests/db/limits.test.mjs tests/db/courts.test.
 ```
 
 The database tests apply every migration and check the access rules — including that a second user can see and change nothing of the first's.
+
+## Android app
+
+The Android app (Capacitor) packages the static demo build: cases live on the phone, with no account or sync.
+Needs the Android SDK and Java 21.
+
+```bash
+node scripts/build-mobile.mjs   # static export into out/
+npx cap sync android
+cd android && ./gradlew assembleDebug   # → android/app/build/outputs/apk/debug/app-debug.apk
+```
+
+Backups go through the Android share sheet. "Add to Google Calendar" opens Google's own event screen (no API key).
+For Google Play, build a signed release bundle (`./gradlew bundleRelease`) with your own upload key.
+`node scripts/make-android-icons.mjs` regenerates the launcher icons and splash screens.
 
 ## Before going live
 

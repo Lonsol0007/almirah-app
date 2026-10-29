@@ -10,6 +10,7 @@ import { data, type ImportResult } from "@/lib/data";
 import { todayIST } from "@/lib/dates";
 import { useAsync } from "@/lib/use-async";
 import { usePrefs } from "@/lib/i18n/prefs";
+import { saveFile } from "@/lib/save-file";
 
 export default function BackupPage() {
   const toast = useToast();
@@ -26,13 +27,7 @@ export default function BackupPage() {
     setExporting(true);
     try {
       const blob = await data.exportBackup();
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = `case-backup-${todayIST()}.json`;
-      a.click();
-      URL.revokeObjectURL(url);
-      toast(t("bk.saved"), "success");
+      if (await saveFile(blob, `almirah-backup-${todayIST()}.json`, t("bk.saveTitle"))) toast(t("bk.saved"), "success");
     } catch (e) {
       toast((e as Error).message, "error");
     } finally {

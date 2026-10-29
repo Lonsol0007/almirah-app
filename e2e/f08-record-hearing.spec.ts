@@ -6,7 +6,7 @@ async function openCase(page: Page, cnr: string) {
   await page.goto("/cnr");
   await page.getByLabel("CNR number").fill(cnr);
   await page.getByRole("button", { name: "Look up" }).click();
-  await expect(page).toHaveURL(/\/cases\//);
+  await expect(page).toHaveURL(/\/case\?id=/);
 }
 
 test.describe("F08 record what happened at a hearing", () => {

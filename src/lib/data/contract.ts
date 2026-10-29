@@ -10,7 +10,7 @@ export interface Profile {
   homeStateId?: string;
   language: string;
   reminderLeadDays: number;
-  /** Which court pickers open on: district courts or High Court. */
+  /** Which court pickers open on: district courts, High Court or consumer commissions. */
   courtLevel: CourtLevel;
 }
 
@@ -75,6 +75,8 @@ export interface DataLayer {
   caseTypes(level?: CourtLevel): Promise<string[]>;
   /** High Court benches seated in a state (district pickers never list these). */
   highCourtBenches(stateId: string): Promise<LocalityNode[]>;
+  /** Consumer commissions (District, State, National) seated in a state. */
+  consumerCommissions(stateId: string): Promise<LocalityNode[]>;
   acts(): Promise<string[]>;
 
   getProfile(): Promise<Profile>;

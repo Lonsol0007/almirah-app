@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { ErrorState } from "@/components/case-list";
+import { COURT_LEVELS } from "@/components/locality-cascade";
 import { Screen } from "@/components/screen";
 import { Button } from "@/components/ui/button";
 import { Select, TextField } from "@/components/ui/field";
@@ -85,14 +86,9 @@ export default function SettingsPage() {
             />
             <fieldset className="flex flex-col gap-2">
               <legend className="mb-1 text-sm font-semibold">{t("st.courts")}</legend>
-              <div className="grid grid-cols-2 gap-2">
-                {(
-                  [
-                    ["district", "loc.districtCourts"],
-                    ["high", "loc.highCourt"],
-                  ] as const
-                ).map(([v, label]) => (
-                  <label key={v} className="flex min-h-11 cursor-pointer items-center gap-2 rounded-md border border-border px-3 text-sm has-[:checked]:border-accent has-[:checked]:bg-accent-subtle">
+              <div className="flex flex-wrap gap-2">
+                {COURT_LEVELS.map(([v, label]) => (
+                  <label key={v} className="flex min-h-11 flex-auto cursor-pointer items-center gap-2 whitespace-nowrap rounded-md border border-border px-3 text-sm has-[:checked]:border-accent has-[:checked]:bg-accent-subtle">
                     <input type="radio" name="court-level-default" value={v} checked={p.courtLevel === v} onChange={() => setP({ ...p, courtLevel: v })} className="h-4 w-4 accent-[var(--accent)]" />
                     {t(label)}
                   </label>

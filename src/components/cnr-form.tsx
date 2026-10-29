@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { TextField } from "@/components/ui/field";
 import { CNR_RE, data, normaliseCnr } from "@/lib/data";
 import { usePrefs } from "@/lib/i18n/prefs";
+import { caseHref } from "@/lib/routes";
 
 export function CnrForm({ compact = false, initial = "" }: { compact?: boolean; initial?: string }) {
   const router = useRouter();
@@ -29,7 +30,7 @@ export function CnrForm({ compact = false, initial = "" }: { compact?: boolean; 
     setBusy(true);
     try {
       const hit = await data.findByCnr(value);
-      if (hit) router.push(`/cases/${hit.id}`);
+      if (hit) router.push(caseHref(hit.id));
       else setNotFound(value);
     } catch (err) {
       setError((err as Error).message);

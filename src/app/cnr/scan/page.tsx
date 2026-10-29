@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { EmptyState } from "@/components/ui/empty-state";
 import { data } from "@/lib/data";
 import { usePrefs } from "@/lib/i18n/prefs";
+import { caseHref } from "@/lib/routes";
 
 // BarcodeDetector is not in TypeScript's DOM lib yet.
 interface Detector {
@@ -70,7 +71,7 @@ export default function ScanPage() {
           setPhase("found");
           stop();
           const hit = await data.findByCnr(cnr);
-          router.push(hit ? `/cases/${hit.id}` : `/cases/new?cnr=${cnr}`);
+          router.push(hit ? caseHref(hit.id) : `/cases/new?cnr=${cnr}`);
           return;
         }
         if (text) setMessage(t("sc.notCnr"));

@@ -20,8 +20,10 @@ export default function CourtsPage() {
       data.locality("district"),
       data.locality("state"),
     ]);
-    // High Court benches are listed alongside district court complexes.
-    const benches = (await Promise.all(states.map((s) => data.highCourtBenches(s.id)))).flat();
+    // High Court benches and consumer commissions are listed alongside district court complexes.
+    const benches = (
+      await Promise.all(states.flatMap((s) => [data.highCourtBenches(s.id), data.consumerCommissions(s.id)]))
+    ).flat();
     return [...complexes, ...benches].map((c) => {
       const d = districts.find((x) => x.id === c.parentId);
       const s = states.find((x) => x.id === d?.parentId);

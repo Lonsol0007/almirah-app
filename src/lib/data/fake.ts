@@ -14,7 +14,7 @@ import {
 } from "./contract";
 import { applyHearing } from "./hearing";
 import { BACKUP_FORMAT, byCourtNo, matches, onAdvocateList, parseBackup, sortByHearing } from "./match";
-import { ACTS, ADVOCATES, CASE_TYPES, COMPLEXES, HC_CASE_TYPES, DISTRICTS, ESTABLISHMENTS, STATES, buildSeed } from "./seed";
+import { ACTS, ADVOCATES, CASE_TYPES, COMPLEXES, CONSUMER_CASE_TYPES, HC_CASE_TYPES, DISTRICTS, ESTABLISHMENTS, STATES, buildSeed } from "./seed";
 
 const KEY = "ct:v1";
 const MAX_ORDER_BYTES = 2 * 1024 * 1024; // browser storage is small; the real layer allows 10 MB
@@ -67,6 +67,11 @@ function placeOf(establishmentId?: string) {
   return { establishmentId: est?.id, complexId: complex?.id, districtId: district?.id, stateId: district?.parentId };
 }
 
+function complexesIn(stateId: string, kind: LocalityNode["kind"]) {
+  const districts = new Set(DISTRICTS.filter((d) => d.parentId === stateId).map((d) => d.id));
+  return COMPLEXES.filter((c) => c.kind === kind && districts.has(c.parentId!));
+}
+
 function newId() {
   return typeof crypto !== "undefined" && "randomUUID" in crypto ? crypto.randomUUID() : String(Date.now() + Math.random());
 }
@@ -74,14 +79,18 @@ function newId() {
 export const fakeData: DataLayer = {
   async locality(level, parentId) {
     await tick();
-    const all = byLevel(level).filter((n) => n.kind !== "high_court");
+    const all = byLevel(level).filter((n) => (n.kind ?? "district") === "district");
     return parentId ? all.filter((n) => n.parentId === parentId) : all;
   },
 
   async highCourtBenches(stateId) {
     await tick();
-    const districts = new Set(DISTRICTS.filter((d) => d.parentId === stateId).map((d) => d.id));
-    return COMPLEXES.filter((c) => c.kind === "high_court" && districts.has(c.parentId!));
+    return complexesIn(stateId, "high_court");
+  },
+
+  async consumerCommissions(stateId) {
+    await tick();
+    return complexesIn(stateId, "consumer");
   },
 
   async localityPath(establishmentId) {
@@ -95,7 +104,7 @@ export const fakeData: DataLayer = {
   },
 
   async caseTypes(level) {
-    return level === "high" ? HC_CASE_TYPES : CASE_TYPES;
+    return level === "high" ? HC_CASE_TYPES : level === "consumer" ? CONSUMER_CASE_TYPES : CASE_TYPES;
   },
 
   async acts() {

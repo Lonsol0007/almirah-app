@@ -5,7 +5,7 @@ async function openByCnr(page: Page, cnr: string) {
   await page.goto("/cnr");
   await page.getByLabel("CNR number").fill(cnr);
   await page.getByRole("button", { name: "Look up" }).click();
-  await expect(page).toHaveURL(/\/cases\//);
+  await expect(page).toHaveURL(/\/case\?id=/);
 }
 
 const myList = (page: Page) => page.getByRole("main");
@@ -49,7 +49,7 @@ test.describe("F04 save a case and track its hearing", () => {
     await page.getByLabel("Petitioner", { exact: true }).fill("Double Click");
     const save = page.getByRole("button", { name: "Save case" });
     await save.dblclick();
-    await expect(page).toHaveURL(/\/cases\/(?!new)/);
+    await expect(page).toHaveURL(/\/case\?id=/);
     await openMyCases(page);
     await page.getByLabel("Search your cases").fill("Double Click");
     await expect(myList(page).getByText("Double Click")).toHaveCount(1);

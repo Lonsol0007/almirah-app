@@ -24,7 +24,14 @@ insert into court_complexes (id, district_id, name, kind) values
   ('1c8276b5-d9b8-421a-af3a-a0e87d220ccf', 'c5796816-8a39-4ab0-ac61-314acbd015c4', 'Bombay High Court, Principal Seat', 'high_court'),
   ('dd3f7a77-e1b3-4339-ad69-4dfd9da1d6f3', '5b13b9af-4abd-4d8d-a0ea-f5726b5b96a8', 'Bombay High Court, Bench at Nagpur', 'high_court'),
   ('d806dfb5-8d01-413b-ab29-b0bee47f9efb', '22a46bbc-fd3f-4a18-a4bf-aa42c058fab3', 'High Court of Karnataka, Principal Bench', 'high_court'),
-  ('df0d0d41-893f-469b-aaff-18f486f76dd2', '8b95f34e-7e1e-4b50-a43f-a692e4a4d044', 'High Court of Delhi', 'high_court')
+  ('df0d0d41-893f-469b-aaff-18f486f76dd2', '8b95f34e-7e1e-4b50-a43f-a692e4a4d044', 'High Court of Delhi', 'high_court'),
+  ('c851b9b2-18c2-48ee-a5d1-56bd6b204830', 'fb4ec803-2d76-4a5e-a210-8cd113820d3c', 'District Consumer Commission, Pune', 'consumer'),
+  ('4f09113c-0181-418c-aee5-1bbbd62058f4', 'c5796816-8a39-4ab0-ac61-314acbd015c4', 'District Consumer Commission, Mumbai Suburban', 'consumer'),
+  ('373efaf1-c771-479f-a167-2662b24a11de', 'c5796816-8a39-4ab0-ac61-314acbd015c4', 'Maharashtra State Consumer Commission', 'consumer'),
+  ('84914775-33b6-408b-a2f9-46fd7e4255ba', '22a46bbc-fd3f-4a18-a4bf-aa42c058fab3', 'District Consumer Commission, Bengaluru Urban', 'consumer'),
+  ('6642eff7-8589-445b-a79a-96f05b56d5ef', '22a46bbc-fd3f-4a18-a4bf-aa42c058fab3', 'Karnataka State Consumer Commission', 'consumer'),
+  ('4d106e01-d7d5-4d97-a870-79ac69b767f3', '8b95f34e-7e1e-4b50-a43f-a692e4a4d044', 'Delhi State Consumer Commission', 'consumer'),
+  ('97f2b72b-4303-46a7-a478-7ed1426a4cc4', '8b95f34e-7e1e-4b50-a43f-a692e4a4d044', 'National Consumer Commission', 'consumer')
 on conflict (id) do nothing;
 
 insert into court_establishments (id, complex_id, name) values
@@ -52,5 +59,15 @@ insert into court_establishments (id, complex_id, name) values
   ('253b6cd6-56bf-496c-ae0a-82dba5b59646', '1c8276b5-d9b8-421a-af3a-a0e87d220ccf', 'Original Side'),
   ('c4922752-f408-4ab3-a04e-0f2cfe483e2f', 'dd3f7a77-e1b3-4339-ad69-4dfd9da1d6f3', 'Appellate Side'),
   ('7e71f980-a8b9-46de-a11c-de3b6f811748', 'd806dfb5-8d01-413b-ab29-b0bee47f9efb', 'Principal Bench'),
-  ('b5dd818d-7102-4293-ad78-7ad65f8fcac3', 'df0d0d41-893f-469b-aaff-18f486f76dd2', 'High Court of Delhi')
+  ('b5dd818d-7102-4293-ad78-7ad65f8fcac3', 'df0d0d41-893f-469b-aaff-18f486f76dd2', 'High Court of Delhi'),
+  ('7c9af820-c452-49ed-afa6-cbc339a97b77', 'c851b9b2-18c2-48ee-a5d1-56bd6b204830', 'Main Bench'),
+  ('623ad2cf-5104-4304-ac79-cdee2957776b', '4f09113c-0181-418c-aee5-1bbbd62058f4', 'Main Bench'),
+  ('a85347a7-76ef-4a7c-acd9-c97aa48558eb', '373efaf1-c771-479f-a167-2662b24a11de', 'Principal Bench'),
+  ('1666034b-82a5-482b-aac7-7f1fd304ab3e', '373efaf1-c771-479f-a167-2662b24a11de', 'Circuit Bench, Nagpur'),
+  ('6b9dfd8d-415c-4967-afdc-15acd9020030', '84914775-33b6-408b-a2f9-46fd7e4255ba', 'First Additional Bench'),
+  ('3bcb3fe4-fe55-40ee-a2a6-3b2dd584c605', '84914775-33b6-408b-a2f9-46fd7e4255ba', 'Second Additional Bench'),
+  ('a999467f-432d-4f05-ab6a-3157129c5915', '6642eff7-8589-445b-a79a-96f05b56d5ef', 'Principal Bench'),
+  ('2fea1e91-d713-42a5-aedb-e32ce3c58154', '4d106e01-d7d5-4d97-a870-79ac69b767f3', 'Principal Bench'),
+  ('681e41fa-767a-4964-ae60-de1c6e06385f', '97f2b72b-4303-46a7-a478-7ed1426a4cc4', 'Principal Bench'),
+  ('14517eef-ba2a-4fd4-a307-a016f0299b3c', '97f2b72b-4303-46a7-a478-7ed1426a4cc4', 'Additional Bench')
 on conflict (id) do nothing;

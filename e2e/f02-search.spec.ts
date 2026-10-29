@@ -122,7 +122,8 @@ test.describe("F03 advocate finds their cases", () => {
     await page.getByRole("tab", { name: "Advocate" }).click();
     await page.getByLabel("Advocate name").fill("Kulkarni");
     await page.getByRole("button", { name: "Search", exact: true }).click();
-    await expect(page.getByRole("heading", { name: "4 results" })).toBeVisible();
+    // 4 district court matters plus the demo consumer complaint
+    await expect(page.getByRole("heading", { name: "5 results" })).toBeVisible();
     await scan(page);
   });
 

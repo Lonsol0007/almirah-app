@@ -2,12 +2,13 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Briefcase, CalendarDays, Hash, ListChecks, Search } from "lucide-react";
+import { Briefcase, CalendarDays, House, ListChecks, Search } from "lucide-react";
 import { cx } from "@/lib/cx";
 import { usePrefs } from "@/lib/i18n/prefs";
 
 const ITEMS = [
-  { href: "/cnr", label: "nav.cnr", icon: Hash },
+  // Home holds the calendar and the CNR lookup, so it takes the CNR tab's place.
+  { href: "/", label: "nav.home", icon: House },
   { href: "/search", label: "nav.search", icon: Search },
   { href: "/cause-list", label: "nav.causeList", icon: ListChecks },
   { href: "/calendar", label: "nav.calendar", icon: CalendarDays },
@@ -25,7 +26,7 @@ export function BottomNav() {
     >
       <ul className="mx-auto grid h-full max-w-[var(--content-max)] grid-cols-5">
         {ITEMS.map(({ href, label, icon: Icon }) => {
-          const active = path === href || path.startsWith(href + "/");
+          const active = path === href || (href !== "/" && path.startsWith(href + "/"));
           return (
             <li key={href}>
               <Link

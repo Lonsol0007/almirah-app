@@ -28,6 +28,14 @@ export const COMPLEXES: LocalityNode[] = [
   { id: "bhc-nagpur", name: "Bombay High Court, Bench at Nagpur", parentId: "mh-nagpur", kind: "high_court" },
   { id: "khc-blr", name: "High Court of Karnataka, Principal Bench", parentId: "ka-blr", kind: "high_court" },
   { id: "dhc", name: "High Court of Delhi", parentId: "dl-new", kind: "high_court" },
+  // Consumer commissions, also under the district they sit in. The National Commission sits in New Delhi.
+  { id: "dcdrc-pune", name: "District Consumer Commission, Pune", parentId: "mh-pune", kind: "consumer" },
+  { id: "dcdrc-mumbai", name: "District Consumer Commission, Mumbai Suburban", parentId: "mh-mumbai", kind: "consumer" },
+  { id: "scdrc-mh", name: "Maharashtra State Consumer Commission", parentId: "mh-mumbai", kind: "consumer" },
+  { id: "dcdrc-blr", name: "District Consumer Commission, Bengaluru Urban", parentId: "ka-blr", kind: "consumer" },
+  { id: "scdrc-ka", name: "Karnataka State Consumer Commission", parentId: "ka-blr", kind: "consumer" },
+  { id: "scdrc-dl", name: "Delhi State Consumer Commission", parentId: "dl-new", kind: "consumer" },
+  { id: "ncdrc", name: "National Consumer Commission", parentId: "dl-new", kind: "consumer" },
 ];
 
 const EST_KINDS = [
@@ -37,16 +45,23 @@ const EST_KINDS = [
   ["ds", "District and Sessions Court"],
 ] as const;
 
-// High Court "sides" or benches play the role a district court establishment plays.
-const HC_SIDES: Record<string, Array<[string, string]>> = {
+// High Court "sides" and consumer commission benches play the role a district court establishment plays.
+const BENCHES: Record<string, Array<[string, string]>> = {
   "bhc-mumbai": [["as", "Appellate Side"], ["os", "Original Side"]],
   "bhc-nagpur": [["as", "Appellate Side"]],
   "khc-blr": [["pb", "Principal Bench"]],
   dhc: [["main", "High Court of Delhi"]],
+  "dcdrc-pune": [["main", "Main Bench"]],
+  "dcdrc-mumbai": [["main", "Main Bench"]],
+  "scdrc-mh": [["pb", "Principal Bench"], ["cb-nagpur", "Circuit Bench, Nagpur"]],
+  "dcdrc-blr": [["b1", "First Additional Bench"], ["b2", "Second Additional Bench"]],
+  "scdrc-ka": [["pb", "Principal Bench"]],
+  "scdrc-dl": [["pb", "Principal Bench"]],
+  ncdrc: [["pb", "Principal Bench"], ["b2", "Additional Bench"]],
 };
 
 export const ESTABLISHMENTS: LocalityNode[] = COMPLEXES.flatMap((c) =>
-  (c.kind === "high_court" ? HC_SIDES[c.id] : EST_KINDS).map(([k, label]) => ({ id: `${c.id}-${k}`, name: label, parentId: c.id })),
+  (c.kind ? BENCHES[c.id] : EST_KINDS).map(([k, label]) => ({ id: `${c.id}-${k}`, name: label, parentId: c.id })),
 );
 
 export const CASE_TYPES = [
@@ -72,6 +87,14 @@ export const HC_CASE_TYPES = [
   "Letters Patent Appeal",
 ];
 
+export const CONSUMER_CASE_TYPES = [
+  "Consumer Complaint",
+  "First Appeal",
+  "Revision Petition",
+  "Execution Application",
+  "Interlocutory Application",
+];
+
 export const ACTS = [
   "Code of Civil Procedure, 1908",
   "Indian Penal Code, 1860",
@@ -81,6 +104,7 @@ export const ACTS = [
   "Transfer of Property Act, 1882",
   "Specific Relief Act, 1963",
   "Constitution of India",
+  "Consumer Protection Act, 2019",
   "Code of Criminal Procedure, 1973",
 ];
 
@@ -127,6 +151,8 @@ const SPECS: SeedSpec[] = [
   { cnr: "HCBM010004562025", est: "bhc-mumbai-as", caseType: "Writ Petition (Civil)", reg: "456/2025", filing: "1002/2025", court: "12", judge: "Division Bench, Court 12", pet: ["Shree Ganesh Co-op Housing Society", "N. Deshpande"], res: ["State of Maharashtra", "Government Pleader"], act: ["Constitution of India", "226"], next: 6, stage: "Admission" },
   { cnr: "HCKA010007892024", est: "khc-blr-pb", caseType: "Criminal Petition", reg: "789/2024", filing: "1450/2024", court: "7", judge: "Single Bench, Court 7", pet: ["Prakash Murthy", "N. Deshpande"], res: ["State of Karnataka", "State Public Prosecutor"], act: ["Code of Criminal Procedure, 1973", "482"], next: 9, stage: "Hearing" },
   { cnr: "HCDL010001232026", est: "dhc-main", caseType: "Letters Patent Appeal", reg: "123/2026", filing: "210/2026", court: "2", judge: "Division Bench, Court 2", pet: ["Yamuna Traders", "N. Deshpande"], res: ["Delhi Development Authority", "Standing Counsel"], act: ["Code of Civil Procedure, 1908", "100A"], next: 2, stage: "Notice" },
+  // A consumer commission matter: no CNR. Its key is consumerRef("dcdrc-pune-main", "CC/412/2025") (checked by a unit test).
+  { cnr: "EJ0XJWL8E1UM847W", est: "dcdrc-pune-main", caseType: "Consumer Complaint", reg: "CC/412/2025", filing: "DC/0702/2025", court: "", judge: "President and Member", pet: ["Meera Joshi", "A. Kulkarni"], res: ["Skyline Developers Pvt Ltd", "S. Joshi"], act: ["Consumer Protection Act, 2019", "35"], next: 4, stage: "Evidence by affidavit" },
 ];
 
 export const ADVOCATES = [
@@ -147,7 +173,7 @@ export function buildSeed(today: string): CourtCase[] {
     const stateId = DISTRICTS.find((d) => d.id === districtId)!.parentId!;
     const status = s.status ?? "pending";
     const next = status === "pending" && s.next !== undefined ? addDays(today, s.next) : undefined;
-    const filed = addDays(`${s.reg.split("/")[1]}-01-20`, i * 11); // filing year matches the case number's year
+    const filed = addDays(`${s.reg.split("/").at(-1)}-01-20`, i * 11); // filing year matches the case number's year
     return {
       id: `seed-${s.cnr.toLowerCase()}`,
       cnr: s.cnr,
@@ -160,7 +186,7 @@ export function buildSeed(today: string): CourtCase[] {
       districtId,
       complexId,
       establishmentId: s.est,
-      courtNo: s.court,
+      courtNo: s.court || undefined,
       judge: s.judge,
       status,
       stage: s.stage,

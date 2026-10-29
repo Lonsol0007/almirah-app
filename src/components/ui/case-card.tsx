@@ -2,9 +2,11 @@
 
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { caseRef } from "@/lib/consumer";
 import type { CourtCase } from "@/lib/types";
 import { hearingTone } from "@/lib/dates";
 import { hearingText, usePrefs } from "@/lib/i18n/prefs";
+import { caseHref } from "@/lib/routes";
 import { StatusBadge } from "./badge";
 
 export function caseTitle(c: CourtCase) {
@@ -12,7 +14,7 @@ export function caseTitle(c: CourtCase) {
   const res = c.parties.find((p) => p.role === "respondent")?.name;
   if (c.label) return c.label;
   if (pet && res) return `${pet} vs ${res}`;
-  return pet ?? res ?? c.cnr;
+  return pet ?? res ?? caseRef(c);
 }
 
 export function CaseCard({ c, actions }: { c: CourtCase; actions?: ReactNode }) {
@@ -23,7 +25,7 @@ export function CaseCard({ c, actions }: { c: CourtCase; actions?: ReactNode }) 
   return (
     <article className="flex items-start gap-2 rounded-lg border border-border bg-surface-raised shadow-card">
       <Link
-        href={`/cases/${c.id}`}
+        href={caseHref(c.id)}
         className="flex min-w-0 flex-1 flex-col gap-1.5 rounded-lg p-4 hover:bg-surface"
         aria-label={`${title}, ${[c.caseType, c.registrationNumber].filter(Boolean).join(" ")}, ${chip}`}
       >
@@ -32,7 +34,7 @@ export function CaseCard({ c, actions }: { c: CourtCase; actions?: ReactNode }) 
           {[c.caseType, c.registrationNumber].filter(Boolean).join(" ")}
           {c.courtNo ? ` · ${t("case.courtN", { n: c.courtNo })}` : ""}
         </span>
-        <span className="font-mono text-xs text-text-muted">{c.cnr}</span>
+        <span className="font-mono text-xs text-text-muted">{caseRef(c)}</span>
         <span className="mt-1">
           <StatusBadge tone={tone}>{chip}</StatusBadge>
         </span>

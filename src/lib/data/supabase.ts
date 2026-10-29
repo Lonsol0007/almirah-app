@@ -17,7 +17,7 @@ import {
 } from "./contract";
 import { applyHearing } from "./hearing";
 import { BACKUP_FORMAT, byCourtNo, matches, onAdvocateList, parseBackup, sortByHearing, type BackupCase } from "./match";
-import { ACTS, CASE_TYPES, HC_CASE_TYPES } from "./seed";
+import { ACTS, CASE_TYPES, CONSUMER_CASE_TYPES, HC_CASE_TYPES } from "./seed";
 
 const MAX_ORDER_BYTES = 10 * 1024 * 1024;
 const CASE_SELECT = "*, parties(*), acts(*), firs(*), case_history(*), orders(*), interim_apps(*), case_transfers(*)";
@@ -160,18 +160,24 @@ function toPayload(c: BackupCase | CourtCase) {
   };
 }
 
+function complexesIn(ref: Awaited<ReturnType<typeof refs>>, stateId: string, kind: LocalityNode["kind"]) {
+  const districts = new Set(ref.district.filter((d) => d.parentId === stateId).map((d) => d.id));
+  return ref.complex.filter((c) => c.kind === kind && districts.has(c.parentId!));
+}
+
 export const supabaseData: DataLayer = {
   async locality(level: LocalityLevel, parentId?: string) {
-    const all = (await refs())[level].filter((n) => n.kind !== "high_court");
+    const all = (await refs())[level].filter((n) => (n.kind ?? "district") === "district");
     return parentId ? all.filter((n) => n.parentId === parentId) : all;
   },
 
   async highCourtBenches(stateId) {
-    const ref = await refs();
-    const districts = new Set(ref.district.filter((d) => d.parentId === stateId).map((d) => d.id));
-    return ref.complex.filter((c) => c.kind === "high_court" && districts.has(c.parentId!));
+    return complexesIn(await refs(), stateId, "high_court");
   },
 
+  async consumerCommissions(stateId) {
+    return complexesIn(await refs(), stateId, "consumer");
+  },
 
   async localityPath(establishmentId) {
     const ref = await refs();
@@ -185,7 +191,7 @@ export const supabaseData: DataLayer = {
   },
 
   async caseTypes(level) {
-    return level === "high" ? HC_CASE_TYPES : CASE_TYPES;
+    return level === "high" ? HC_CASE_TYPES : level === "consumer" ? CONSUMER_CASE_TYPES : CASE_TYPES;
   },
 
   async acts() {
@@ -202,7 +208,7 @@ export const supabaseData: DataLayer = {
       homeStateId: s(data?.home_state_id),
       language: s(data?.language) ?? "en",
       reminderLeadDays: Number(data?.reminder_lead_days ?? 1),
-      courtLevel: data?.court_level === "high" ? "high" : "district",
+      courtLevel: data?.court_level === "high" || data?.court_level === "consumer" ? data.court_level : "district",
     };
     return profileCache;
   },

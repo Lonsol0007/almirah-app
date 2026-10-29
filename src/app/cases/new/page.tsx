@@ -9,6 +9,7 @@ import { UpgradeNotice } from "@/components/upgrade-notice";
 import { Button } from "@/components/ui/button";
 import { DateField, Select, TextField } from "@/components/ui/field";
 import { useToast } from "@/components/ui/toast";
+import { consumerRef } from "@/lib/consumer";
 import { CNR_RE, DataError, data, normaliseCnr } from "@/lib/data";
 import type { MessageKey } from "@/lib/i18n/messages";
 
@@ -18,6 +19,7 @@ const KNOWN_ERRORS: Record<string, MessageKey> = {
   "This case is already in your list.": "nc.duplicate",
 };
 import { useAsync } from "@/lib/use-async";
+import { caseHref } from "@/lib/routes";
 
 function NewCaseForm() {
   const router = useRouter();
@@ -35,9 +37,15 @@ function NewCaseForm() {
     e.preventDefault();
     const f = new FormData(e.currentTarget);
     const get = (k: string) => String(f.get(k) ?? "").trim();
-    const cnr = normaliseCnr(get("cnr"));
+    // Consumer commission cases have no CNR: they are keyed on the bench plus the e-Jagriti case number.
+    const consumer = level === "consumer";
     const next: Record<string, string> = {};
-    if (!CNR_RE.test(cnr)) next.cnr = t("nc.badCnr");
+    if (consumer) {
+      if (!get("registrationNumber")) next.registrationNumber = t("nc.needCaseNo");
+      if (!where.establishmentId) next.establishmentId = t("nc.needBench");
+    }
+    const cnr = consumer ? consumerRef(where.establishmentId ?? "", get("registrationNumber")) : normaliseCnr(get("cnr"));
+    if (!consumer && !CNR_RE.test(cnr)) next.cnr = t("nc.badCnr");
     if (!get("petitioner") && !get("label")) next.petitioner = t("nc.needName");
     setErrors(next);
     if (Object.keys(next).length) {
@@ -59,13 +67,14 @@ function NewCaseForm() {
         advocateName: get("advocateName"),
       });
       toast(t("nc.saved"), "success");
-      router.push(`/cases/${c.id}`);
+      router.push(caseHref(c.id));
     } catch (err) {
       if (err instanceof DataError && err.code === "limit") {
         setLimit(err.message);
       } else if (err instanceof DataError && (err.code === "duplicate" || err.code === "invalid")) {
-        setErrors({ cnr: KNOWN_ERRORS[err.message] ? t(KNOWN_ERRORS[err.message]) : err.message });
-        document.getElementById("cnr")?.focus();
+        const field = level === "consumer" ? "registrationNumber" : "cnr";
+        setErrors({ [field]: KNOWN_ERRORS[err.message] ? t(KNOWN_ERRORS[err.message]) : err.message });
+        document.getElementById(field)?.focus();
       } else {
         toast((err as Error).message, "error");
       }
@@ -78,18 +87,20 @@ function NewCaseForm() {
     <form method="post" onSubmit={submit} noValidate className="flex flex-col gap-6">
       <fieldset className="flex flex-col gap-4 rounded-lg border border-border bg-surface-raised p-4 shadow-card">
         <legend className="px-1 text-base font-semibold">{t("nc.theCase")}</legend>
-        <TextField
-          id="cnr"
-          name="cnr"
-          label={t("cnr.label")}
-          defaultValue={params.get("cnr") ?? ""}
-          autoCapitalize="characters"
-          autoComplete="off"
-          spellCheck={false}
-          className="font-mono uppercase"
-          error={errors.cnr}
-          required
-        />
+        {level !== "consumer" && (
+          <TextField
+            id="cnr"
+            name="cnr"
+            label={t("cnr.label")}
+            defaultValue={params.get("cnr") ?? ""}
+            autoCapitalize="characters"
+            autoComplete="off"
+            spellCheck={false}
+            className="font-mono uppercase"
+            error={errors.cnr}
+            required
+          />
+        )}
         <TextField name="label" label={t("nc.label")} placeholder={t("nc.labelPlaceholder")} maxLength={80} />
         <Select
           name="caseType"
@@ -97,14 +108,22 @@ function NewCaseForm() {
           placeholder={t("field.chooseCaseType")}
           options={(types.data ?? []).map((ty) => ({ value: ty, label: ty }))}
         />
-        <TextField name="registrationNumber" label={t("tab.caseNumber")} placeholder={t("nc.caseNumberPlaceholder")} />
+        <TextField
+          id="registrationNumber"
+          name="registrationNumber"
+          label={t("tab.caseNumber")}
+          placeholder={level === "consumer" ? "CC/123/2025" : t("nc.caseNumberPlaceholder")}
+          hint={level === "consumer" ? t("nc.consumerHint") : undefined}
+          error={errors.registrationNumber}
+          required={level === "consumer"}
+        />
         <DateField name="nextHearingDate" label={t("rh.next")} />
       </fieldset>
 
       <fieldset className="flex flex-col gap-4 rounded-lg border border-border bg-surface-raised p-4 shadow-card">
         <legend className="px-1 text-base font-semibold">{t("loc.court")}</legend>
-        <LocalityCascade value={where} onChange={setWhere} />
-        <TextField name="courtNo" label={t("nc.courtRoom")} inputMode="numeric" />
+        <LocalityCascade value={where} onChange={setWhere} errors={{ establishmentId: errors.establishmentId }} />
+        {level !== "consumer" && <TextField name="courtNo" label={t("nc.courtRoom")} inputMode="numeric" />}
       </fieldset>
 
       <fieldset className="flex flex-col gap-4 rounded-lg border border-border bg-surface-raised p-4 shadow-card">

@@ -23,7 +23,7 @@ const SCREENS = [
       await page.getByRole("heading", { name: /result/ }).waitFor();
     },
   },
-  { id: "S17", path: "/cases/seed-mhpu010004212024" },
+  { id: "S17", path: "/case?id=seed-mhpu010004212024" },
   { id: "S23", path: "/cause-list" },
   { id: "S24", path: "/cause-list?tab=advocate" },
   { id: "S25", path: "/my-cases" },
