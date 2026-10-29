@@ -17,8 +17,8 @@ test.describe("F04 save a case and track its hearing", () => {
     await expect(page.getByRole("button", { name: "In My cases" })).toHaveAttribute("aria-pressed", "true");
     await openMyCases(page);
     await expect(myList(page).getByText("Sunita Gaikwad vs Anil Gaikwad")).toBeVisible();
-    await page.goto("/calendar");
-    await expect(page.getByRole("list", { name: /Hearings on/ }).getByText("Sunita Gaikwad vs Anil Gaikwad")).toBeVisible();
+    await page.goto("/");
+    await expect(page.getByRole("list", { name: "Today's hearings" }).getByText("Sunita Gaikwad vs Anil Gaikwad")).toBeVisible();
     await scan(page);
   });
 
@@ -115,7 +115,7 @@ test.describe("F04 save a case and track its hearing", () => {
   });
 
   test("F04-E7 calendar: arrow keys move between days", async ({ page }) => {
-    await page.goto("/calendar");
+    await page.goto("/");
     const today = page.locator("[data-date][tabindex='0']");
     const date = await today.getAttribute("data-date");
     await today.focus();

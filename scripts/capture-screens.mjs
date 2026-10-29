@@ -27,7 +27,6 @@ const SCREENS = [
   { id: "S23", path: "/cause-list" },
   { id: "S24", path: "/cause-list?tab=advocate" },
   { id: "S25", path: "/my-cases" },
-  { id: "S26", path: "/calendar" },
   { id: "S27", path: "/courts" },
   { id: "S28", path: "/my-cases/backup" },
   { id: "S30", path: "/more" },

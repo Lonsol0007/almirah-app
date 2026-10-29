@@ -9,7 +9,6 @@ const SCREENS: Array<[string, string, RegExp]> = [
   ["S06", "/search", /Search cases/],
   ["S23", "/cause-list", /Cause list/],
   ["S25", "/my-cases", /My cases/],
-  ["S26", "/calendar", /Today/],
   ["S27", "/courts", /Find a court/],
   ["S28", "/my-cases/backup", /Save a backup/],
   ["S30", "/more", /Help/],
